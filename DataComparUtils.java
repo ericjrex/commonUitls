@@ -62,7 +62,7 @@ public class DataComparUtils {
                     DateTimeFormat dateTimeFormat = field.getAnnotation(DateTimeFormat.class);
                     if(dateTimeFormat != null){
                         String pattern = dateTimeFormat.pattern();
-                        if(StringUtils.isNotEmpty(val.toString()) && StringUtils.isNotEmpty(pattern)){
+                        if(org.apache.commons.lang3.StringUtils.isNotEmpty(val.toString()) && org.apache.commons.lang3.StringUtils.isNotEmpty(pattern)){
                             val = DateUtil.format((Date) val, pattern);
                         }
                     }
