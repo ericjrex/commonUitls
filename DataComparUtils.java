@@ -52,7 +52,7 @@ public class DataComparUtils {
                 }
                 ApiModelProperty apiAnnotation = field.getAnnotation(ApiModelProperty.class);
                 // 注解不空，用注解描述
-                if (apiAnnotation != null && StringUtils.isNotBlank(apiAnnotation.value())) {
+                if (apiAnnotation != null && org.apache.commons.lang3.StringUtils.isNotBlank(apiAnnotation.value())) {
                     showName = apiAnnotation.value();
                 }
                 PropertyDescriptor propertyDescriptor = new PropertyDescriptor(fieldName, aClass);
@@ -136,10 +136,10 @@ public class DataComparUtils {
                     DateTimeFormat dateTimeFormat = field.getAnnotation(DateTimeFormat.class);
                     if(dateTimeFormat != null){
                         String pattern = dateTimeFormat.pattern();
-                        if(StringUtils.isNotEmpty(oldVal.toString()) && StringUtils.isNotEmpty(pattern)){
+                        if(org.apache.commons.lang3.StringUtils.isNotEmpty(oldVal.toString()) && org.apache.commons.lang3.StringUtils.isNotEmpty(pattern)){
                             oldVal = DateUtil.format((Date) oldVal, pattern);
                         }
-                        if(StringUtils.isNotEmpty(newVal.toString()) && StringUtils.isNotEmpty(pattern)){
+                        if(org.apache.commons.lang3.StringUtils.isNotEmpty(newVal.toString()) && org.apache.commons.lang3.StringUtils.isNotBlank(pattern)){
                             newVal = DateUtil.format((Date) newVal, pattern);
                         }
                     }
